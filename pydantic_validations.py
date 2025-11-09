@@ -1,9 +1,10 @@
 from pydantic import BaseModel
+from typing import Optional
 
 
 class NoteBase(BaseModel):
     title: str
-    content: str | None = None
+    content: Optional[str]= None
 
 class NoteCreate(NoteBase):
     pass

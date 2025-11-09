@@ -4,13 +4,14 @@ from sqlalchemy import Column, Integer, String, Text
 
 
 
-DATABASE_URL = "sqlite:///notes.db"  # SQLite file-based DB
+DATABASE_URL = "sqlite:///./notes.db"  # SQLite file-based DB
 
 engine = create_engine(
     DATABASE_URL, connect_args={"check_same_thread": False}  # Required for SQLite
 )
 
 session = Session(engine)
+
 
 Base = declarative_base()
 
