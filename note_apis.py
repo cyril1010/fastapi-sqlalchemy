@@ -19,43 +19,43 @@ class NoteResponse(BaseModel):
 
 
 
-# Create Note
-@app.post("/notes", response_model=NoteResponse)
-def create_note(note: NoteCreate):
-    new_note = Note(title=note.title, content=note.content)
-    session.add(new_note)
-    session.commit()
-    session.refresh(new_note)
-    return new_note
+# # Create Note
+# # @app.post("/notes/", response_model=NoteResponse)
+# # def create_note(note: NoteCreate):
+# #     new_note = Note(title=note.title, content=note.content)
+# #     session.add(new_note)
+# #     session.commit()
+# #     session.refresh(new_note)
+# #     return new_note
 
 
-# Read All Notes
-@app.get("/notes", response_model=List[NoteResponse])
-def get_notes():
-    return session.query(Note).all()
+# # Read All Notes
+# @app.get("/notes", response_model=List[NoteResponse])
+# def get_notes():
+#     return session.query(Note).all()
 
 
-# Read Single Note by ID
-@app.get("/notes/{note_id}", response_model=NoteResponse)
-def get_note(note_id: int):
-    note = session.query(Note).filter(Note.id == note_id).first()
-    if not note:
-        return JSONResponse({"status_code":404, "detail":"Note not found"},status_code=404)
-    return note
+# # Read Single Note by ID
+# @app.get("/notes/{note_id}", response_model=NoteResponse)
+# def get_note(note_id: int):
+#     note = session.query(Note).filter(Note.id == note_id).first()
+#     if not note:
+#         return JSONResponse({"status_code":404, "detail":"Note not found"},status_code=404)
+#     return note
     
 
 
-# Update Note
-@app.put("/notes/{note_id}", response_model=NoteResponse)
-def update_note(note_id: int, note_data: NoteCreate):
-    note = session.query(Note).filter(Note.id == note_id).first()
-    if not note:
-        return JSONResponse({"status_code":404, "detail":"Note not found"},status_code=404)
-    note.title = note_data.title
-    note.content = note_data.content
-    session.commit()
-    session.refresh(note)
-    return note
+# # Update Note
+# @app.put("/notes/{note_id}", response_model=NoteResponse)
+# def update_note(note_id: int, note_data: NoteCreate):
+#     note = session.query(Note).filter(Note.id == note_id).first()
+#     if not note:
+#         return JSONResponse({"status_code":404, "detail":"Note not found"},status_code=404)
+#     note.title = note_data.title
+#     note.content = note_data.content
+#     session.commit()
+#     session.refresh(note)
+#     return note
 
 
 # Delete Note

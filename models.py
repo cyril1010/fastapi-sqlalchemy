@@ -3,17 +3,17 @@ from sqlalchemy.orm import Session, declarative_base
 from sqlalchemy import Column, Integer, String, Text,Boolean
 
 
-DATABASE_URI = 'postgresql://postgres:evoqins2025@localhost:5432/cyb'
+DATABASE_URI = 'postgresql://postgres:akzpass@localhost:5432/akshay'
 
-HEAD
-DATABASE_URL = "sqlite:///./notes.db"  # SQLite file-based DB
+
+# DATABASE_URL = "sqlite:///./notes.db"  # SQLite file-based DB
 
 engine = create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False}  # Required for SQLite
+    DATABASE_URI, connect_args={"check_same_thread": False}  # Required for SQLite
 )
 
 engine = create_engine(DATABASE_URI)
-d011aa04db99800e13e5c122bf59a37e161aadb6
+
 
 session = Session(engine)
 
