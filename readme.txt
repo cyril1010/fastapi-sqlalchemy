@@ -1,6 +1,6 @@
 Python 3.12
 
-C:\Users\Evo-Cyril\AppData\Local\Programs\Python\Python312\python.exe -m venv env
+python -m venv env
 
 env/Scripts/activate
 
